@@ -1,0 +1,28 @@
+﻿@model DEPI6InstructorCRUDMVCWebAPPTask.Models.Instructor
+
+<div class="form-group">
+    <label class="col-form-label" asp-for="Name"></label>
+    <input asp-for="Name" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Img"></label>
+    @if (!string.IsNullOrEmpty(Model?.Img))
+    {
+        <div>
+            <img src="~/images/@Model.Img" alt="Instructor Image" class="m-3" style="width: 100px; height: auto;" />
+        </div>
+    }
+    <input asp-for="Img" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Salary"></label>
+    <input asp-for="Salary" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Address"></label>
+    <input asp-for="Address" class="form-control" readonly />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="DepartmentId"></label>
+    <input asp-for="DepartmentId" class="form-control" readonly />
+</div>

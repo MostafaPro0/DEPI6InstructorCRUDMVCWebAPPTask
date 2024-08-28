@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DEPI6InstructorCRUDMVCWebAPPTask.Models.Instructor>
+
+<h2>Instructor Details</h2>
+
+<a asp-action="Create" class="btn btn-primary">Create New Instructor</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Courses</th>
+            <th>Salary</th>
+            <th>Address</th>
+            <th>Image</th>
+            <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var instructor in Model)
+        {
+            <tr>
+                <td class="align-middle">@instructor.Name</td>
+                <td class="align-middle">@(instructor.Department?.Name ?? "No Department")</td>
+                <td class="align-middle">
+                    @if (instructor.Courses?.Any() ?? false)
+                    {
+                        <ul>
+                            @foreach (var course in instructor.Courses)
+                            {
+                                <li>@course.Name (Degree: @course.Degree, MinDegree: @course.MinDegree)</li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p>No Courses</p>
+                    }
+                </td>
+                <td class="align-middle">@instructor.Salary</td>
+                <td class="align-middle">@instructor.Address</td>
+
+                <td class="align-middle">
+                    @if (!string.IsNullOrEmpty(instructor.Img))
+                    {
+                        <img src="~/images/@instructor.Img" alt="@instructor.Name" style="width: 100px; height: auto;" />
+                    }
+                    else
+                    {
+                        <p>No Image Available</p>
+                    }
+                </td>
+                    <partial name="_ButtonsPartialView" model="@instructor.Id" />
+              
+            </tr>
+        }
+    </tbody>
+</table>
