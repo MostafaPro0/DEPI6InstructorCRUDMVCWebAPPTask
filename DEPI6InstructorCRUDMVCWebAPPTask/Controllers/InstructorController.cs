@@ -58,7 +58,7 @@ namespace DEPI6InstructorCRUDMVCWebAPPTask.Controllers
         // POST: Instructors/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( Instructor instructor)
+        public async Task<IActionResult> Create(Instructor instructor)
         {
             if (ModelState.IsValid)
             {
@@ -151,6 +151,15 @@ namespace DEPI6InstructorCRUDMVCWebAPPTask.Controllers
         private bool InstructorExists(int id)
         {
             return _context.Instructors.Any(e => e.Id == id);
+        }
+        public IActionResult VerifyExistInstructor(string name)
+        {
+            var existInstructor = _context.Instructors.FirstOrDefault(e => e.Name == name);
+            if (existInstructor != null)
+            {
+                return Json($"Instructor {existInstructor.Name} is already Exist.");
+            }
+            return Json(true);
         }
     }
 }
