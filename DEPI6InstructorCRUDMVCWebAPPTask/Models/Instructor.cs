@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DEPI6InstructorCRUDMVCWebAPPTask.Validations;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,7 +16,8 @@ namespace DEPI6InstructorCRUDMVCWebAPPTask.Models
         [Required(ErrorMessage = "Name Is Required!!")]
         [MaxLength(50, ErrorMessage = "Max Length Of Name 50 Chars")]
         [MinLength(5, ErrorMessage = "Min Length Of Name 50 Chars")]
-        [Remote(action: "VerifyExistInstructor", controller: "Instructor")]
+        //[Remote(action: "VerifyExistInstructor", controller: "Instructor")]
+        [UniqueValidation("Name")]
         public string Name { get; set; }
         public string Img { get; set; }
 

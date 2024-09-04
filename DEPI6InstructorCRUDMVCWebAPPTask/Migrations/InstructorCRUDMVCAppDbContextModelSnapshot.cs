@@ -46,7 +46,7 @@ namespace DEPI6InstructorCRUDMVCWebAPPTask.Migrations
 
                     b.HasIndex("InstructorId");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("DEPI6InstructorCRUDMVCWebAPPTask.Models.CrsResult", b =>
@@ -72,7 +72,7 @@ namespace DEPI6InstructorCRUDMVCWebAPPTask.Migrations
 
                     b.HasIndex("TraineeId");
 
-                    b.ToTable("CrsResults");
+                    b.ToTable("CrsResults", (string)null);
                 });
 
             modelBuilder.Entity("DEPI6InstructorCRUDMVCWebAPPTask.Models.Department", b =>
@@ -93,7 +93,7 @@ namespace DEPI6InstructorCRUDMVCWebAPPTask.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Departments");
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("DEPI6InstructorCRUDMVCWebAPPTask.Models.Instructor", b =>
@@ -127,7 +127,7 @@ namespace DEPI6InstructorCRUDMVCWebAPPTask.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Instructors");
+                    b.ToTable("Instructors", (string)null);
                 });
 
             modelBuilder.Entity("DEPI6InstructorCRUDMVCWebAPPTask.Models.Trainee", b =>
@@ -156,7 +156,7 @@ namespace DEPI6InstructorCRUDMVCWebAPPTask.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Trainees");
+                    b.ToTable("Trainees", (string)null);
                 });
 
             modelBuilder.Entity("DEPI6InstructorCRUDMVCWebAPPTask.Models.Course", b =>
